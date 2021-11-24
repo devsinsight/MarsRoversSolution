@@ -25,7 +25,7 @@ Based on the information, We can determine that South and North correspond to Y 
 With that porpose, I created a class named "Cardinal" to handle the cardinal axies, asociate the neighbors around a cardinal point 
 like for example North: his left is West and right is East and give values like +1 if it's North and -1 if it's South. 
 This way we can achieve the objetives of the NASA to give instructions to the rovers. The second I've created was the "Rover" class 
-which interact directly with a list of the Cardinal class whith the information previously listed. This way we can simply give instructions 
+which interact directly with a list of the Cardinal class with the information previously listed. This way we can simply give instructions 
 and get the appropiate cardinal point in the list and get the values and neighbors depends on the instructions. 
 Finally, I developed a simple console menu to set the current position and give instructions.
 
