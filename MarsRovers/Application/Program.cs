@@ -7,9 +7,9 @@ namespace MarsRovers
     class Program
     {
 
-        static string CurPos;
+
+        static string CurrPos;
         static string Instructions;
-        static bool IsValid = true;
 
         static void Main(string[] args)
         {
@@ -45,43 +45,24 @@ namespace MarsRovers
             Console.WriteLine("2) Instruct rover to move to a new position");
             Console.WriteLine("3) Calculate new position");
 
-            if (!string.IsNullOrEmpty(CurPos))
-            {
-                Console.WriteLine(" - Current Position: " + CurPos);
-            }
-
-            if (!string.IsNullOrEmpty(Instructions))
-            {
-                Console.WriteLine(" - Instructions: " + Instructions);
-            }
-
-            if(!IsValid)
-            {
-                Console.WriteLine("**There is an error in the current position or instructions, please read the General Instructions above.**");
-            }
-
             Console.WriteLine("Select an option: ");
 
             switch (Console.ReadLine())
             {
                 case "1":
                     Console.Write("\r\nInsert current position (i.e. 11N) and press Enter: ");
-                    CurPos = Console.ReadLine().ToUpper();
-                    IsValid = Regex.Match(CurPos, "^[(0-9)][(0-9)][NSEW]$").Success;
+                    CurrPos = Console.ReadLine().ToUpper();
                     return true;
                 case "2":
                     Console.Write("\r\nInsert instructions (i.e. RMMLM) and press Enter: ");
                     Instructions = Console.ReadLine().ToUpper();
-                    IsValid = Regex.Match(Instructions, "^[RLM]+$").Success;
                     return true;
                 case "3":
-                    
-                    if (!String.IsNullOrEmpty(CurPos) && !String.IsNullOrEmpty(CurPos) && IsValid)
-                    {
-                        Rover rover = new(CurPos, Instructions);
-                        Console.WriteLine("The new position is: " + rover.calculateNewPosition());
-                    }
 
+                    Rover rover = new();
+                    rover.SetCurrPos(CurrPos);
+                    rover.SetInstructions(Instructions);
+                    Console.WriteLine("The new position is: " + rover.CalculateNewPosition());
                     Console.ReadLine();
                     return true;
                 default:
