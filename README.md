@@ -19,7 +19,7 @@ Your task is write an application that takes the test input (instructions from N
 (the feedback from the rovers to NASA). Each rover will move in series, i.e. the next rover will not start moving until 
 the one preceding it finishes. 
 
-## Solution
+## Brief explanation of the solution
 
 Based on the information, We can determine that South and North correspond to Y axis and West and East correspond to X axis.
 With that porpose, I created a class named "Cardinal" to handle the cardinal axies, asociate the neighbors around a cardinal point 
@@ -28,4 +28,9 @@ This way we can achieve the objetives of the NASA to give instructions to the ro
 which interact directly with a list of the Cardinal class with the information previously listed. This way we can simply give instructions 
 and get the appropiate cardinal point in the list and get the values and neighbors depends on the instructions. 
 Finally, I developed a simple console menu to set the current position and give instructions.
+
+- Rover class is the Aggregate class which connects the other to do the validation and calculations.
+- Other classes like Cardinal and CardinalList should be threated like value object classes used on the aggregate class (Rover)
+- Because the simplicity of the problem, only two layer were needed: Application Layer and Domain Layer
+
 
